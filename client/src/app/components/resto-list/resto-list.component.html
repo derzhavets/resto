@@ -1,0 +1,8 @@
+<h1>List of Restaurants</h1>
+<div class="cards-container">
+  <mat-card *ngFor="let resto of restos">
+    <mat-card-title>{{resto.name}}</mat-card-title>
+    <mat-card-subtitle>Number ot tables: {{resto.numOfTables}}</mat-card-subtitle>
+    <button [routerLink]="['/restos', resto._id]" mat-raised-button color="primary">Book</button>
+  </mat-card>
+</div>

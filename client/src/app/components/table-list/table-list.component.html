@@ -1,0 +1,14 @@
+<h3>Tables availability</h3>
+<div class="cards-container">
+  <mat-card class="mat-card" *ngFor="let table of resto.tables">
+    <mat-card-title>Table number: {{table.number}}</mat-card-title>
+    <mat-card-content>
+      <h3 [ngClass]="table.occupied ? 'r-label r-label-occ' : 'r-label r-label-free'">
+        {{table.occupied ? 'Occupied' : 'Free'}}
+      </h3>
+    </mat-card-content>
+    <button (click)="selectTable(table)" mat-raised-button color="primary">
+      {{table.occupied ? 'Manage reservation' : 'Reserve'}}
+    </button>
+  </mat-card>
+</div>

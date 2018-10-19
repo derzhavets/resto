@@ -1,0 +1,16 @@
+<h1>Selected resto: {{resto.name}}</h1>
+<h3><a [routerLink]="['/resto-list']">Back to list</a></h3>
+<hr>
+<h3>Select desired reservation date</h3>
+<mat-form-field>
+  <input matInput [matDatepicker]="picker" [(ngModel)]="date" placeholder="Choose a date">
+  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+  <mat-datepicker #picker></mat-datepicker>
+</mat-form-field>
+
+<hr>
+
+<app-table-list [(date)]="date" [resto]="resto" [(selectedTable)]="selectedTable" 
+                *ngIf="!selectedTable" ngDefaultControl></app-table-list>
+<app-reservation [(selectedTable)]="selectedTable" [(date)]="date"
+                *ngIf="selectedTable"></app-reservation>

@@ -1,0 +1,20 @@
+<h3>Reservation</h3>
+
+<form class="example-form">
+    <mat-form-field class="example-full-width">
+        <input matInput placeholder="Enter your name" [(ngModel)]="reservation.name" name="name" required>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+        <input matInput type="number" placeholder="Enter amount of guests" [(ngModel)]="reservation.guests" name="guests" required>
+    </mat-form-field>
+</form>
+
+<button (click)="createReservation()" *ngIf="!reservation._id"
+            mat-raised-button color="accent">Create reservation</button>
+<button (click)="cancelReservation()" *ngIf="reservation._id"
+            mat-raised-button color="primary">Cancel reservation</button>
+
+<h3>
+    <a (click)="backToList()" [routerLink]="">Back to tables</a>
+</h3>
