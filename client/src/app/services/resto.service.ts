@@ -10,10 +10,10 @@ export class RestoService {
   constructor(private http: HttpClient) { }
 
   getAllRestos(): Observable<any> {
-    return this.http.get('http://localhost:3000/resto/restos')
+    return this.http.get('/api/restos')
   }
 
   getResto(id: string): Observable<any> {
-    return this.http.get(`http://localhost:3000/resto/restos/${id}`)
+    return this.http.get(`/api/restos/${id}`)
   }
 }

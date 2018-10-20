@@ -10,20 +10,20 @@ import { AppRoutes } from './app.routes';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RestoListComponent } from './components/resto-list/resto-list.component';
-import { RestoComponent } from './components/resto/resto.component';
-import { TableComponent } from './components/table/table.component';
 import { FormsModule } from '@angular/forms';
-import { TableListComponent } from './components/table-list/table-list.component';
-import { ReservationComponent } from './components/reservation/reservation.component';
+import { MainComponent } from './components/main/main.component';
+import { DatePickerComponent } from './components/date-picker/date-picker.component';
+import { RestoViewComponent } from './components/resto-view/resto-view.component';
+import { TableReservationComponent } from './components/table-reservation/table-reservation.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RestoListComponent,
-    RestoComponent,
-    TableComponent,
-    TableListComponent,
-    ReservationComponent
+    MainComponent,
+    DatePickerComponent,
+    RestoViewComponent,
+    TableReservationComponent
   ],
   imports: [
     BrowserModule,

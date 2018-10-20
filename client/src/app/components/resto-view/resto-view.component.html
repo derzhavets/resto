@@ -1,3 +1,7 @@
+<h1>Selected resto: {{resto.name}}</h1>
+<h3><a [routerLink]="['../../restos']">Back to list</a></h3>
+<hr>
+
 <h3>Tables availability</h3>
 <div class="cards-container">
   <mat-card class="mat-card" *ngFor="let table of resto.tables">
@@ -7,7 +11,7 @@
         {{table.occupied ? 'Occupied' : 'Free'}}
       </h3>
     </mat-card-content>
-    <button (click)="selectTable(table)" mat-raised-button color="primary">
+    <button [routerLink]="['../../tables', table._id]" mat-raised-button color="primary">
       {{table.occupied ? 'Manage reservation' : 'Reserve'}}
     </button>
   </mat-card>

@@ -10,12 +10,16 @@ export class ReservationService {
 
   constructor(private http: HttpClient) { }
 
+  getTable(id: String): Observable<any> {
+    return this.http.get(`/api/tables/${id}`)
+  }
+
   createReservation(id: String, reservation: Reservation): Observable<any> {
-    return this.http.post(`http://localhost:3000/resto/tables/${id}/reserve`, reservation)
+    return this.http.post(`/api/tables/${id}/reserve`, reservation)
   }
 
   cancelReservation(id: String): Observable<any> {
-    return this.http.get(`http://localhost:3000/resto/reservations/${id}/cancel`)
+    return this.http.get(`/api/reservations/${id}/cancel`)
   }
 
 }

@@ -3,6 +3,6 @@
   <mat-card *ngFor="let resto of restos">
     <mat-card-title>{{resto.name}}</mat-card-title>
     <mat-card-subtitle>Number ot tables: {{resto.numOfTables}}</mat-card-subtitle>
-    <button [routerLink]="['/restos', resto._id]" mat-raised-button color="primary">Book</button>
+    <button [routerLink]="['./', resto._id]" mat-raised-button color="primary">Book</button>
   </mat-card>
 </div>
