@@ -3,13 +3,13 @@ const Resto = restoModel.Resto;
 
 exports.createResto = function (req, res) {
 
-    let resto = new Models.Resto({
+    let resto = new Resto({
         name: req.body.name,
         numOfTables: req.body.numOfTables
     });
 
     for (let i = 0; i < req.body.numOfTables; i++) {
-        let table = new Models.Table({
+        let table = new Table({
             number: i + 1,
             resto: resto._id
         });

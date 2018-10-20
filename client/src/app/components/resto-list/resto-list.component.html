@@ -2,7 +2,8 @@
 <div class="cards-container">
   <mat-card *ngFor="let resto of restos">
     <mat-card-title>{{resto.name}}</mat-card-title>
-    <mat-card-subtitle>Number ot tables: {{resto.numOfTables}}</mat-card-subtitle>
+    <mat-card-subtitle>Number ot tables: <span class="number-label">{{resto.numOfTables}}</span></mat-card-subtitle>
+    <mat-card-subtitle>Free tables: <span class="number-label">{{resto.freeTables}}</span></mat-card-subtitle>
     <button [routerLink]="['./', resto._id]" mat-raised-button color="primary">Book</button>
   </mat-card>
 </div>

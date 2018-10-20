@@ -33,8 +33,23 @@ exports.createReservation = function (req, res) {
 }
 
 exports.deleteReservation = function (req, res) {
-    Reservation.findOneAndRemove({ _id: req.params.reservation_id })
-        .exec(function (err, reservation) {
-            res.send(err ? err : reservation)
+    Reservation.findByIdAndRemove(req.params.reservation_id, function (err, reservation) {
+        res.send(err ? err : reservation)
+    })
+}
+
+exports.getReservationsByDate = function (req, res) {
+    console.log(req.params.date);
+    
+    Reservation.find({ date: req.params.date })
+        .populate({
+            path: 'table',
+            select: 'resto',
+            populate: { path: 'resto' }
+        })
+        .exec(function(err, reservations) {
+            console.log(reservations);
+            
+            res.send(err ? err : reservations)
         })
 }

@@ -10,8 +10,4 @@ let ReservationSchema = new Schema({
     table: { type: Schema.Types.ObjectId, ref: 'Table'}
 });
 
-ReservationSchema.pre('remove', function(next) {
-    // TODO Delete reservation from related table references
-})
-
 exports.Reservation = mongoose.model('Reservation', ReservationSchema);

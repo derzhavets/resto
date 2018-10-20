@@ -25,7 +25,7 @@ export class TableReservationComponent implements OnInit {
   ngOnInit() {
     this.dateService.date.subscribe(date => {
       this.date = date
-      this.updateReservationModel()
+      if (this.selectedTable) { this.updateReservationModel() }
     })
 
     this.route.params.subscribe(params => {
@@ -39,15 +39,13 @@ export class TableReservationComponent implements OnInit {
 
 
   updateReservationModel() {
-    if (this.selectedTable) {
       this.reservation = new Reservation()
       let reservations = this.selectedTable.reservations
-      for (let i = 0; i < reservations.length; i++) {
-        if (moment(reservations[i].date).isSame(this.date)) {
-          this.reservation = reservations[i]
+      reservations.forEach(res => {
+        if (moment(res.date).isSame(this.date)) {
+          this.reservation = res
         }
-      }
-    }
+      });
   }
 
   createReservation() {

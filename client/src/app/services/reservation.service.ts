@@ -22,4 +22,7 @@ export class ReservationService {
     return this.http.get(`/api/reservations/${id}/cancel`)
   }
 
+  getReservationsToDate(date: Date): Observable<any> {
+    return this.http.get(`/api/reservations/date/${date}`)
+  }
 }
