@@ -39,8 +39,6 @@ exports.deleteReservation = function (req, res) {
 }
 
 exports.getReservationsByDate = function (req, res) {
-    console.log(req.params.date);
-    
     Reservation.find({ date: req.params.date })
         .populate({
             path: 'table',
@@ -48,8 +46,6 @@ exports.getReservationsByDate = function (req, res) {
             populate: { path: 'resto' }
         })
         .exec(function(err, reservations) {
-            console.log(reservations);
-            
             res.send(err ? err : reservations)
         })
 }

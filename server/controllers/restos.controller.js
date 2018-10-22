@@ -1,6 +1,11 @@
 const restoModel = require('../models/resto');
 const Resto = restoModel.Resto;
 
+const tableModel = require('../models/table');
+const Table = tableModel.Table;
+
+
+
 exports.createResto = function (req, res) {
 
     let resto = new Resto({
